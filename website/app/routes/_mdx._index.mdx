@@ -159,7 +159,6 @@ In Remix, the equivalent of `_document.tsx` in Next.js is `root.tsx`.
 
 ```tsx
 // Next.js: /pages/_document.tsx
-
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -299,6 +298,7 @@ export async function getServerSideProps() {
 
 ```tsx
 import { LoaderFunction, redirect } from '@remix-run/node'
+
 export let loader: LoaderFunction = async () => {
     return redirect('/home', { status: 307 })
 }
@@ -323,6 +323,7 @@ export async function getServerSideProps() {
 
 ```tsx
 import { LoaderFunction } from '@remix-run/node'
+
 export let loader: LoaderFunction = async () => {
     throw new Response('', { status: 404 })
 }
@@ -389,6 +390,7 @@ export default function Index() {
 ```tsx
 // Remix
 import { useNavigate } from '@remix-run/react'
+
 export default function Index() {
     // focus
     const navigate = useNavigate()
@@ -416,6 +418,7 @@ Remix uses navigate with a second options argument.
 
 ```tsx
 import { useRouter } from 'next/router'
+
 export default function Index() {
     // focus
     const router = useRouter()
@@ -436,6 +439,7 @@ export default function Index() {
 ```tsx
 // Remix
 import { useNavigate } from '@remix-run/react'
+
 export default function Index() {
     // focus
     const navigate = useNavigate()
@@ -467,7 +471,6 @@ In Next.js you can reload with `router.reload()` or `router.replace(router.asPat
 ```tsx
 import { useRouter } from 'next/router'
 
-// Next.js
 export default function Index() {
     // focus
     const router = useRouter()
@@ -569,7 +572,7 @@ Next.js has `asPath` to get the current path as shown in the browser. Remix has 
 
 ```tsx
 import { useRouter } from 'next/router'
-// Next.js
+
 export default function Index() {
     // focus
     const router = useRouter()
@@ -582,6 +585,7 @@ export default function Index() {
 ```tsx
 // Remix
 import { useLocation } from '@remix-run/react'
+
 export default function Index() {
     // focus
     const location = useLocation()
@@ -601,8 +605,9 @@ Remix uses the navigate function to go back in the history stack.
 
 ```tsx
 import { useRouter } from 'next/router'
-// Next.js
+
 export default function Index() {
+
     const router = useRouter()
 
     return (
@@ -621,6 +626,7 @@ export default function Index() {
 ```tsx
 // Remix
 import { useNavigate } from '@remix-run/react'
+
 export default function Index() {
     // focus
     const navigate = useNavigate()
@@ -648,7 +654,7 @@ Remix uses the navigate function to go forward in the history stack.
 
 ```tsx
 import { useRouter } from 'next/router'
-// Next.js
+
 export default function Index() {
     // focus
     const router = useRouter()
@@ -669,6 +675,7 @@ export default function Index() {
 ```tsx
 // Remix
 import { useNavigate } from '@remix-run/react'
+
 export default function Index() {
     // focus
     const navigate = useNavigate()
@@ -702,7 +709,6 @@ export function getServerSideProps({ params }) {
     return { props: { params } }
 }
 
-// Next.js
 export default function Index({ params }) {
     // focus
     const router = useRouter()
