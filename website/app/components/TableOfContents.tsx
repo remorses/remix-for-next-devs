@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react'
 import { Children } from 'react'
 
 type Toc = {
@@ -27,7 +28,7 @@ export function TableOfContents({
             {flatNodes.map((item) => {
                 return (
                     <li key={item.id} className={`ml-${item.depth * 4}`}>
-                        <a href={`#${item.id}`}>{item.value}</a>
+                        <Link to={`#${item.id}`}>{item.value}</Link>
                     </li>
                 )
             })}
