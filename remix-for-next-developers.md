@@ -79,7 +79,7 @@ export default function Root() {
 }
 ```
 
-## Layouts
+## Layouts (app directory)
 
 <SideBySide>
 
@@ -624,7 +624,7 @@ export default function Index() {
 
 </SideBySide>
 
-## Showing skeleton while loading
+## Showing skeleton while loading (app directory)
 
 <SideBySide>
 
