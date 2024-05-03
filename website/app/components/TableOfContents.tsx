@@ -14,7 +14,7 @@ export function TableOfContents({
     tableOfContents: Toc[]
 }) {
     const flatNodes = [] as Toc[]
-    let stack = structuredClone(tableOfContents)
+    let stack = structuredClone(tableOfContents[0].children)!
     while (stack.length) {
         const node = stack.shift()
         if (!node) continue
@@ -24,10 +24,10 @@ export function TableOfContents({
         }
     }
     return (
-        <ul className='list-none'>
+        <ul className='pl-0 list-none'>
             {flatNodes.map((item) => {
                 return (
-                    <li key={item.id} className={`ml-${item.depth * 4}`}>
+                    <li key={item.id} className={`ml-${(item.depth ) * 4}`}>
                         <Link to={`#${item.id}`}>{item.value}</Link>
                     </li>
                 )
