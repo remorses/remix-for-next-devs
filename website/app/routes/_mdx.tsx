@@ -11,7 +11,7 @@ const components: MDXComponents = {
 export default function Page() {
     return (
         <MDXProvider components={components}>
-            <div className='px-12 w-full flex flex-col items-center '>
+            <div className='px-12 pt-24 w-full flex flex-col items-center '>
                 <div className='prose max-w-[1800px]'>
                     <Outlet />
                 </div>
