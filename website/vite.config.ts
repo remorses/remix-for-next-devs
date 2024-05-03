@@ -1,5 +1,7 @@
 import { remarkCodeHike } from '@code-hike/mdx'
-
+import withSlugs from 'rehype-slug'
+import withToc from '@stefanprobst/rehype-extract-toc'
+import withTocExport from '@stefanprobst/rehype-extract-toc/mdx'
 import {
     vitePlugin as remix,
     cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
@@ -20,7 +22,7 @@ export default defineConfig({
                 remarkMdxFrontmatter,
                 [remarkCodeHike, { theme: 'github-dark' }],
             ],
-
+            rehypePlugins: [withSlugs, withToc, withTocExport],
             mdxExtensions: ['.md', '.mdx'],
             mdExtensions: [],
             providerImportSource: '@mdx-js/react',

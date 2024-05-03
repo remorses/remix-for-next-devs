@@ -1,0 +1,36 @@
+import { Children } from 'react'
+
+type Toc = {
+    id: string
+    depth: number
+    value: string
+    children?: Toc[]
+}
+
+export function TableOfContents({
+    tableOfContents,
+}: {
+    tableOfContents: Toc[]
+}) {
+    const flatNodes = [] as Toc[]
+    let stack = structuredClone(tableOfContents)
+    while (stack.length) {
+        const node = stack.shift()
+        if (!node) continue
+        flatNodes.push(node)
+        if (node.children) {
+            stack = node.children.concat(stack)
+        }
+    }
+    return (
+        <ul className='list-none'>
+            {flatNodes.map((item) => {
+                return (
+                    <li key={item.id} className={`ml-${item.depth * 4}`}>
+                        <a href={`#${item.id}`}>{item.value}</a>
+                    </li>
+                )
+            })}
+        </ul>
+    )
+}
