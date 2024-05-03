@@ -1,5 +1,36 @@
 # Remix for Next.js Developers
 
+## Routes definition
+
+<SideBySide>
+
+
+```bash
+pages/
+├── _app.tsx
+├── index.tsx
+├── about.tsx
+├── concerts/
+│   ├── index.tsx
+│   ├── trending.tsx
+│   └── [city].tsx
+```
+
+```bash
+app/
+├── routes/
+│   ├── _index.tsx
+│   ├── about.tsx
+│   ├── concerts._index.tsx
+│   ├── concerts.$city.tsx
+│   ├── concerts.trending.tsx
+│   └── concerts.tsx
+└── root.tsx
+```
+
+
+</SideBySide>
+
 ## getServerSideProps to Data Loader
 
 <SideBySide>
@@ -52,40 +83,10 @@ export async function getServerSideProps() {
 ```
 
 ```tsx
-// Remix
+import { LoaderFunction, redirect } from "@remix-run/node";
 export let loader: LoaderFunction = async () => {
   return redirect('/home');
 };
-```
-
-</SideBySide>
-
-## Navigation Events with useState vs useNavigation
-
-<SideBySide>
-
-```tsx
-// Next.js
-const [isNavigating, setIsNavigating] = useState(false);
-
-useEffect(() => {
-  const handleRouteChangeStart = () => setIsNavigating(true);
-  const handleRouteChangeComplete = () => setIsNavigating(false);
-
-  router.events.on('routeChangeStart', handleRouteChangeStart);
-  router.events.on('routeChangeComplete', handleRouteChangeComplete);
-
-  return () => {
-    router.events.off('routeChangeStart', handleRouteChangeStart);
-    router.events.off('routeChangeComplete', handleRouteChangeComplete);
-  };
-}, [router.events]);
-```
-
-```tsx
-// Remix
-let navigation = useNavigation();
-let isNavigating = navigation.state === 'idle';
 ```
 
 </SideBySide>
