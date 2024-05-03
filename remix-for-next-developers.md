@@ -480,3 +480,64 @@ export default function Index() {
 ```
 
 </SideBySide>
+
+## Showing skeleton while loading
+
+<SideBySide>
+
+```tsx
+// app/page.tsx using server components
+import { Suspense } from 'react'
+
+async function ServerComponent() {
+    const data = await fetchData()
+    return <div>{data}</div>
+}
+
+export default function Page() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ServerComponent />
+        </Suspense>
+    )
+}
+```
+
+```tsx
+import { defer } from '@remix-run/node'
+import { useLoaderData, Await } from '@remix-run/react'
+import { Suspense } from 'react'
+
+export function loader() {
+    return defer({
+        data: fetchData(),
+    })
+}
+
+export default function Page() {
+    const { data } = useLoaderData<typeof loader>()
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Await resolve={data}>{(data) => <div>{data}</div>}</Await>
+        </Suspense>
+    )
+}
+```
+
+## Dynamic imports
+
+<SideBySide>
+
+```tsx
+import { lazy, Suspense } from 'react'
+
+const Page = lazy(() => import('./page'))
+
+export default function App() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Page />
+        </Suspense>
+    )
+}
+```
