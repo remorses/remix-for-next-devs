@@ -31,6 +31,105 @@ app/
 
 </SideBySide>
 
+## Dynamic route `[city].tsx`
+
+<SideBySide>
+
+```bash
+pages/
+├── _app.tsx
+├── concerts/
+│   ├── index.tsx
+│   └── [city].tsx
+```
+
+```bash
+app/
+├── routes/
+│   ├── concerts._index.tsx
+│   ├── concerts.$city.tsx
+└── root.tsx
+```
+
+</SideBySide>
+
+## Catch all routes `[...slug].tsx`
+
+<SideBySide>
+
+```bash
+pages/
+├── _app.tsx
+├── posts/
+│   ├── [...slug].tsx
+│   └── index.tsx
+```
+
+```bash
+app/
+├── routes/
+│   ├── posts.$.tsx
+│   └── posts._index.tsx
+└── root.tsx
+```
+
+</SideBySide>
+
+## route groups (app directory)
+
+<SideBySide>
+
+```bash
+app/
+├── (group)/
+│   ├── folder/
+│   │   ├── page.tsx
+│   │   └── layout.tsx
+│   ├── page.tsx
+│   └── layout.tsx
+├── other/
+│   └── page.tsx
+├── layout.tsx
+```
+
+```bash
+app/
+├── routes/
+│   ├── group_.tsx
+│   ├── group_._index.tsx
+│   ├── group_.folder.tsx
+│   └── other.tsx
+└── root.tsx
+```
+
+</SideBySide>
+
+## routes with dots (sitemap.xml)
+
+You can escape dots in Remix with `[]` syntax.
+
+<SideBySide>
+
+```bash
+pages/
+├── _app.tsx
+├── posts/
+│   ├── index.tsx
+│   └── about.tsx
+├── sitemap.xml
+```
+
+```bash
+app/
+├── routes/
+│   ├── posts._index.tsx
+│   ├── posts.about.tsx
+│   └── sitemap[.xml].tsx
+└── root.tsx
+```
+
+</SideBySide>
+
 ## \_document.tsx
 
 <SideBySide>
