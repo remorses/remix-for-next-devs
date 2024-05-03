@@ -24,7 +24,7 @@ export function TableOfContents({
         }
     }
     return (
-        <ul className='pl-0 list-none'>
+        <ul className='pl-0 text-sm list-none'>
             {flatNodes.map((item) => {
                 return (
                     <li key={item.id} className={`ml-${(item.depth ) * 4}`}>

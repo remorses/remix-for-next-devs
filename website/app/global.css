@@ -7,3 +7,14 @@ body,
 #__next {
     height: 100%;
 }
+
+html {
+    background: theme('colors.gray.50');
+    /* make the scroll to section be a bit lower than the top */
+    scroll-padding-top: 40px;
+
+}
+
+p {
+    max-width: 700px;
+}

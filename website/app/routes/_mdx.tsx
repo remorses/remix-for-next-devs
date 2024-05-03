@@ -2,11 +2,7 @@ import { Outlet } from '@remix-run/react'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXComponents } from 'mdx/types'
 
-const components: MDXComponents = {
-    code({ children, ...props }) {
-        return <code {...props}>{children}</code>
-    },
-}
+const components: MDXComponents = {}
 
 export default function Page() {
     return (
