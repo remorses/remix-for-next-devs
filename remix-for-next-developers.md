@@ -29,6 +29,91 @@ app/
 
 </SideBySide>
 
+## \_document.tsx
+
+<SideBySide>
+
+```tsx
+// Next.js: /pages/_document.tsx
+
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+    return (
+        <Html lang='en'>
+            <Head />
+            <body>
+                <Main />
+                <NextScript />
+            </body>
+        </Html>
+    )
+}
+```
+
+```tsx
+// app/root.tsx
+
+import {
+    Links,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+} from '@remix-run/react'
+
+export default function Root() {
+    return (
+        <html lang='en'>
+            <head>
+                <Links />
+                <Meta />
+            </head>
+            <body>
+                <Outlet />
+                <ScrollRestoration />
+                <Scripts />
+            </body>
+        </html>
+    )
+}
+```
+
+## Layouts
+
+<SideBySide>
+
+```tsx
+// app/posts/layout.tsx
+export default function Layout({ children }) {
+    return <div>{children}</div>
+}
+
+// app/posts/[id]/page.tsx
+export default function Page() {
+    return <div>Hello World</div>
+}
+```
+
+```tsx
+import { Outlet } from '@remix-run/react'
+
+// app/routes/posts.tsx
+export default function Layout() {
+    return (
+        <div>
+            <Outlet />
+        </div>
+    )
+}
+// app/routes/posts.$id.tsx
+export default function Page() {
+    return <div>Hello World</div>
+}
+```
+
+</SideBySide>
+
 ## getServerSideProps
 
 <SideBySide>
