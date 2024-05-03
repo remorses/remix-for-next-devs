@@ -1,0 +1,20 @@
+{
+  "name": "next-to-remix-prompts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "remorses <beats.by.morse@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@remix-run/node": "^2.9.1",
+    "@remix-run/react": "^2.9.1",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "next": "^14.2.3",
+    "react": "^18.3.1"
+  }
+}
