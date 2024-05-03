@@ -1,3 +1,5 @@
+import "@code-hike/mdx/styles"
+
 import {
   Links,
   Meta,

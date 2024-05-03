@@ -1,3 +1,5 @@
+import { remarkCodeHike } from '@code-hike/mdx'
+
 import {
     vitePlugin as remix,
     cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
@@ -13,8 +15,12 @@ export default defineConfig({
     plugins: [
         remixCloudflareDevProxy(),
         mdx({
-            remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
-            rehypePlugins: [],
+            remarkPlugins: [
+                remarkFrontmatter,
+                remarkMdxFrontmatter,
+                [remarkCodeHike, { theme: 'github-dark' }],
+            ],
+
             mdxExtensions: ['.md', '.mdx'],
             mdExtensions: [],
             providerImportSource: '@mdx-js/react',
