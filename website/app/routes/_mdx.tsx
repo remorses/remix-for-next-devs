@@ -1,8 +1,18 @@
-import { Outlet } from '@remix-run/react'
+import { MetaFunction, Outlet } from '@remix-run/react'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXComponents } from 'mdx/types'
 
 const components: MDXComponents = {}
+
+export const meta: MetaFunction = ({ location }) => {
+    return [
+        { title: `Remix for Next.js Developers` }, //
+        {
+            name: 'description',
+            content: 'Snippets of code translated from Next.js to Remix. Learn Remix by example.',
+        },
+    ]
+}
 
 export default function Page() {
     return (
