@@ -439,13 +439,71 @@ export default Error
 ```
 
 ```tsx
-import { useRouteError } from '@remix-run/react'
+import { useRouteError, Scripts, isRouteErrorResponse } from '@remix-run/react'
+
 // root.tsx
 export function ErrorBoundary() {
-    const error: any = useRouteError()
-    return <div>{error.message}</div>
+    const error = useRouteError()
+    return (
+        <html>
+            <head>
+                <title>Oops!</title>
+            </head>
+            <body>
+                <h1>
+                    {isRouteErrorResponse(error)
+                        ? `${error.status} ${error.statusText}`
+                        : error instanceof Error
+                          ? error.message
+                          : 'Unknown Error'}
+                </h1>
+                <Scripts />
+            </body>
+        </html>
+    )
 }
 ```
+
+## 400.jsx
+
+<SideBySide>
+
+```tsx
+// pages/400.jsx
+
+export default function Custom404() {
+    return <h1>404 - Page Not Found</h1>
+}
+```
+
+```tsx
+// root.tsx
+import { useRouteError, Scripts, isRouteErrorResponse } from '@remix-run/react'
+
+// a 404 page is the same thing as an error page, where the error is a 404 response
+export function ErrorBoundary() {
+    const error = useRouteError()
+    return (
+        <html>
+            <head>
+                <title>Oops!</title>
+            </head>
+            <body>
+                <h1>
+                    {isRouteErrorResponse(error)
+                        ? `${error.status} ${error.statusText}`
+                        : error instanceof Error
+                          ? error.message
+                          : 'Unknown Error'}
+                </h1>
+                <Scripts />
+            </body>
+        </html>
+    )
+}
+```
+
+</SideBySide>
 
 ## useRouter().events
 
