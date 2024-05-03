@@ -10,7 +10,6 @@ import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-    
     plugins: [
         remixCloudflareDevProxy(),
         mdx({
@@ -18,6 +17,7 @@ export default defineConfig({
             rehypePlugins: [],
             mdxExtensions: ['.md', '.mdx'],
             mdExtensions: [],
+            providerImportSource: '@mdx-js/react',
         }),
         remix({}),
         tsconfigPaths(),

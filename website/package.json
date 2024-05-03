@@ -15,11 +15,13 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.0.1",
     "@mdx-js/rollup": "^3.0.1",
     "@remix-run/cloudflare": "^2.8.1",
     "@remix-run/cloudflare-pages": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@tailwindcss/typography": "^0.5.13",
+    "@types/mdx": "^2.0.13",
     "isbot": "^4.1.0",
     "miniflare": "^3.20240404.0",
     "react": "^18.2.0",
