@@ -81,6 +81,8 @@ export default function Root() {
 }
 ```
 
+</SideBySide>
+
 ## Layouts (app directory)
 
 <SideBySide>
@@ -196,6 +198,8 @@ export let loader: LoaderFunction = async () => {
 }
 ```
 
+</SideBySide>
+
 ## API Routes
 
 <SideBySide>
@@ -220,6 +224,8 @@ export let loader: LoaderFunction = async ({ request }: LoaderFunctionArgs) => {
     return new Response(JSON.stringify({ name: 'John Doe' }))
 }
 ```
+
+</SideBySide>
 
 ## useRouter().push
 
@@ -423,6 +429,8 @@ export default function Index() {
 }
 ```
 
+</SideBySide>
+
 ## dynamic params
 
 <SideBySide>
@@ -461,6 +469,8 @@ export default function Index() {
     return <div>{params.name}</div>
 }
 ```
+
+</SideBySide>
 
 ## getStaticProps
 
@@ -501,6 +511,8 @@ export default function Index() {
     return <div>{data.params.name}</div>
 }
 ```
+
+</SideBySide>
 
 ## \_error.jsx
 
@@ -550,6 +562,8 @@ export function ErrorBoundary() {
     )
 }
 ```
+
+</SideBySide>
 
 ## 400.jsx
 
@@ -669,9 +683,23 @@ export default function Page() {
 }
 ```
 
+</SideBySide>
+
 ## Dynamic imports
 
 <SideBySide>
+
+```tsx
+import dynamic from 'next/dynamic'
+
+const Page = dynamic(() => import('./page'), {
+    loading: () => <div>Loading...</div>,
+})
+
+export default function App() {
+    return <Page />
+}
+```
 
 ```tsx
 import { lazy, Suspense } from 'react'
@@ -686,3 +714,5 @@ export default function App() {
     )
 }
 ```
+
+</SideBySide>

@@ -15,7 +15,7 @@ export default defineConfig({
         mdx({
             remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
             rehypePlugins: [],
-            
+            mdxExtensions: ['.md', '.mdx'],
         }),
         remix(),
         tsconfigPaths(),
