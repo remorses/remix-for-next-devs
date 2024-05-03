@@ -4,6 +4,7 @@ import { SideBySide } from '../components/SideBySide'
 
 ## Routes definition
 
+Instead of using folders and slashes to define routes, you can use dots (`.`) to define routes, each dot define a path segment.
 
 <SideBySide>
 
@@ -35,6 +36,8 @@ app/
 
 ## Dynamic route `[city].tsx`
 
+Instead of using square brackets to define dynamic routes, you can use the dollar sign with your param name (`$city`) to define dynamic routes.
+
 <SideBySide>
 
 ```bash
@@ -42,6 +45,7 @@ pages/
 ├── _app.tsx
 ├── concerts/
 │   ├── index.tsx
+# focus
 │   └── [city].tsx
 ```
 
@@ -49,6 +53,7 @@ pages/
 app/
 ├── routes/
 │   ├── concerts._index.tsx
+# focus
 │   ├── concerts.$city.tsx
 └── root.tsx
 ```
@@ -57,12 +62,15 @@ app/
 
 ## Catch all routes `[...slug].tsx`
 
+Instead of using three dots to define catch all routes, you can use the dollar sign (`$`) to define catch all routes.
+
 <SideBySide>
 
 ```bash
 pages/
 ├── _app.tsx
 ├── posts/
+# focus
 │   ├── [...slug].tsx
 │   └── index.tsx
 ```
@@ -70,6 +78,7 @@ pages/
 ```bash
 app/
 ├── routes/
+# focus
 │   ├── posts.$.tsx
 │   └── posts._index.tsx
 └── root.tsx
@@ -79,10 +88,13 @@ app/
 
 ## route groups (app directory)
 
+Route groups exist in Next.js app directory, Remix has them too, if a route starts with a underscore it will be used as an hidden route, useful to define a layout for a set of routes.
+
 <SideBySide>
 
 ```bash
 app/
+# focus(1:6)
 ├── (group)/
 │   ├── folder/
 │   │   ├── page.tsx
@@ -97,6 +109,7 @@ app/
 ```bash
 app/
 ├── routes/
+# focus(1:3)
 │   ├── group_.tsx
 │   ├── group_._index.tsx
 │   ├── group_.folder.tsx
@@ -108,7 +121,7 @@ app/
 
 ## routes with dots (sitemap.xml)
 
-You can escape dots in Remix with `[]` syntax.
+You can escape dots in Remix with `[]` syntax. This is useful for characters like `.` and `_` that have special meaning in the route syntax.
 
 <SideBySide>
 
@@ -118,6 +131,7 @@ pages/
 ├── posts/
 │   ├── index.tsx
 │   └── about.tsx
+# focus
 ├── sitemap.xml
 ```
 
@@ -126,6 +140,7 @@ app/
 ├── routes/
 │   ├── posts._index.tsx
 │   ├── posts.about.tsx
+# focus
 │   └── sitemap[.xml].tsx
 └── root.tsx
 ```
@@ -133,6 +148,8 @@ app/
 </SideBySide>
 
 ## \_document.tsx
+
+In Remix, the equivalent of `_document.tsx` in Next.js is `root.tsx`.
 
 <SideBySide>
 
@@ -186,9 +203,12 @@ export default function Root() {
 
 ## Layouts (app directory)
 
+In Remix, you can define layouts in the `app` directory, the equivalent of `_app.tsx` in Next.js is `root.tsx`. Each route folder can have a layout too, simply define a component for that folder and use Outlet to render the child routes.
+
 <SideBySide>
 
 ```tsx
+
 // app/posts/layout.tsx
 export default function Layout({ children }) {
     return <div>{children}</div>
@@ -220,6 +240,8 @@ export default function Page() {
 </SideBySide>
 
 ## getServerSideProps
+
+Remix has `loader` instead of `getServerSideProps`, the `loader` function is a top-level export in a route module that is used to fetch data for the route. This function is called on every render, on client side navigation this function will be used to get the json for the next page.
 
 <SideBySide>
 
@@ -256,6 +278,8 @@ export default function Index() {
 
 ## getServerSideProps with redirect
 
+Remix has an utility function called `redirect` you can return in your loaders, notice that this function simply returns a Response.
+
 <SideBySide>
 
 ```tsx
@@ -281,6 +305,8 @@ export let loader: LoaderFunction = async () => {
 
 ## getServerSideProps notFound
 
+Remix supports throwing responses, similar to what Next.js app directory does, when you throw a response you can intercept it in a route `ErrorBoundary` to show a custom message.
+
 <SideBySide>
 
 ```tsx
@@ -302,6 +328,8 @@ export let loader: LoaderFunction = async () => {
 </SideBySide>
 
 ## API Routes
+
+Remix has no concept of API routes, just use normal loaders like any other route and return a Response object.
 
 <SideBySide>
 
@@ -329,6 +357,8 @@ export let loader: LoaderFunction = async ({ request }: LoaderFunctionArgs) => {
 </SideBySide>
 
 ## useRouter().push
+
+Remix instead of `useRouter` has many little hooks unfortunately. One of these is `useNavigate` which is used to navigate to a new route.
 
 <SideBySide>
 
