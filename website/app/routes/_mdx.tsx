@@ -18,7 +18,7 @@ export default function Page() {
     return (
         <MDXProvider components={components}>
             <div className='px-6 md:px-12 pt-12 md:pt-24 w-full flex flex-col items-center '>
-                <div className='prose min-w-0 w-full max-w-[1800px]'>
+                <div className='prose gap-4 flex flex-col items-center min-w-0 w-full max-w-[1800px]'>
                     <Outlet />
                 </div>
             </div>
