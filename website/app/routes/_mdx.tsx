@@ -9,7 +9,8 @@ export const meta: MetaFunction = ({ location }) => {
         { title: `Remix for Next.js Developers` }, //
         {
             name: 'description',
-            content: 'Snippets of code translated from Next.js to Remix. Learn Remix by example.',
+            content:
+                'Snippets of code translated from Next.js to Remix. Learn Remix by example.',
         },
     ]
 }
@@ -18,7 +19,12 @@ export default function Page() {
     return (
         <MDXProvider components={components}>
             <div className='px-6 md:px-12 pt-12 md:pt-24 w-full flex flex-col items-center '>
-                <div className='prose gap-4 flex flex-col items-center min-w-0 w-full max-w-[1800px]'>
+                <div
+                    style={{
+                        contentVisibility: 'auto',
+                    }}
+                    className='prose gap-4 flex flex-col items-center min-w-0 w-full max-w-[1800px]'
+                >
                     <Outlet />
                 </div>
             </div>
