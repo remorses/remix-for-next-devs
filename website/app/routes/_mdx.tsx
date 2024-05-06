@@ -23,7 +23,7 @@ export default function Page() {
                     style={{
                         contentVisibility: 'auto',
                     }}
-                    className='prose gap-1 flex flex-col items-center min-w-0 w-full max-w-[1800px]'
+                    className='prose prose-quoteless gap-1 flex flex-col items-center min-w-0 w-full max-w-[1800px]'
                 >
                     <Outlet />
                 </div>
