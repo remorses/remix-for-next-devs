@@ -27,12 +27,20 @@ export default function Page() {
                 >
                     <Outlet />
                 </div>
-                <div className='pt-24'>
-                    Written by{' '}
-                    <a className='underline' href='https://twitter.com/__morse'>
-                        @__morse
-                    </a>
-                    <a className='underline' href='https://github.com/remorses/remix-for-next-devs/edit/main/website/app/routes/_mdx._index.mdx'>
+                <div className='pt-24 flex flex-col text-sm items-center gap-4'>
+                    <div className=''>
+                        Written by{' '}
+                        <a
+                            className='underline'
+                            href='https://twitter.com/__morse'
+                        >
+                            @__morse
+                        </a>
+                    </div>
+                    <a
+                        className='underline'
+                        href='https://github.com/remorses/remix-for-next-devs/edit/main/website/app/routes/_mdx._index.mdx'
+                    >
                         Edit on GitHub
                     </a>
                 </div>
