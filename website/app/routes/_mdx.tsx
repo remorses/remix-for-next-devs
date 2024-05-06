@@ -32,6 +32,9 @@ export default function Page() {
                     <a className='underline' href='https://twitter.com/__morse'>
                         @__morse
                     </a>
+                    <a className='underline' href='https://github.com/remorses/remix-for-next-devs/edit/main/website/app/routes/_mdx._index.mdx'>
+                        Edit on GitHub
+                    </a>
                 </div>
             </div>
         </MDXProvider>
