@@ -3,6 +3,8 @@ import { TableOfContents } from '../components/TableOfContents'
 
 # Remix for Next.js Developers
 
+> Do you like this guide? If yes you may want to reserve a spot for the [Remix for Next Devs Video Course](https://holocron.lemonsqueezy.com/buy/e601a66b-9e3c-4e52-8a4e-1d95d49bae3b?logo=0) where we will create a full Remix application from scratch using Remix, Tailwind, Supabase, Docker and Fly.
+
 **Table of Contents**
 
 <TableOfContents tableOfContents={tableOfContents} />
@@ -284,7 +286,6 @@ Remix has an utility function called `redirect` you can return in your loaders, 
 <SideBySide>
 
 ```tsx
-
 export async function getServerSideProps() {
     return {
         redirect: {
@@ -312,7 +313,6 @@ Remix supports throwing responses, similar to what Next.js app directory does, w
 <SideBySide>
 
 ```tsx
-
 export async function getServerSideProps() {
     return {
         notFound: true,
@@ -387,7 +387,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useNavigate } from '@remix-run/react'
 
 export default function Index() {
@@ -436,7 +435,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useNavigate } from '@remix-run/react'
 
 export default function Index() {
@@ -488,7 +486,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useRevalidator } from '@remix-run/react'
 export default function Index() {
     // focus
@@ -538,7 +535,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useSearchParams } from '@remix-run/react'
 export default function Index() {
     // focus
@@ -582,7 +578,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useLocation } from '@remix-run/react'
 
 export default function Index() {
@@ -606,7 +601,6 @@ Remix uses the navigate function to go back in the history stack.
 import { useRouter } from 'next/router'
 
 export default function Index() {
-
     const router = useRouter()
 
     return (
@@ -623,7 +617,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useNavigate } from '@remix-run/react'
 
 export default function Index() {
@@ -672,7 +665,6 @@ export default function Index() {
 ```
 
 ```tsx
-
 import { useNavigate } from '@remix-run/react'
 
 export default function Index() {
@@ -722,7 +714,6 @@ export default function Index({ params }) {
 ```
 
 ```tsx
-
 import { LoaderFunctionArgs, json } from '@remix-run/node'
 import { useParams } from '@remix-run/react'
 
@@ -765,7 +756,6 @@ export default function Index({ params }) {
 ```
 
 ```tsx
-
 import { LoaderFunctionArgs, json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 
