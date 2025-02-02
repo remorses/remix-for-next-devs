@@ -9,7 +9,7 @@ import {
 import mdx from '@mdx-js/rollup'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkFrontmatter from 'remark-frontmatter'
-
+import rehypeMdxImportMedia from 'rehype-mdx-import-media'
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
@@ -22,10 +22,10 @@ export default defineConfig({
                 remarkMdxFrontmatter,
                 [remarkCodeHike, { theme: 'github-dark' }],
             ],
-            rehypePlugins: [withSlugs, withToc, withTocExport],
+            rehypePlugins: [withSlugs, withToc, withTocExport, rehypeMdxImportMedia],
             mdxExtensions: ['.md', '.mdx'],
             mdExtensions: [],
-            providerImportSource: '@mdx-js/react',
+            // providerImportSource: '@mdx-js/react',
         }),
         remix({}),
         tsconfigPaths(),
