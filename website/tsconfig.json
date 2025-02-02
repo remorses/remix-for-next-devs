@@ -1,18 +1,10 @@
 {
-    "include": [
-        "**/*.ts",
-        "**/*.tsx",
-        "**/.server/**/*.ts",
-        "**/.server/**/*.tsx",
-        "**/.client/**/*.ts",
-        "**/.client/**/*.tsx"
-    ],
     "compilerOptions": {
         "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "types": [
             "@remix-run/cloudflare",
             "vite/client",
-            "app/global.d.ts",
+
             "@cloudflare/workers-types/2023-07-01"
         ],
         "isolatedModules": true,
@@ -28,7 +20,7 @@
         "forceConsistentCasingInFileNames": true,
         "baseUrl": ".",
         "paths": {
-            "~/*": ["./app/*"]
+            "@/*": ["./app/*"]
         },
         "noImplicitAny": false,
         // Vite takes care of building everything, not tsc.

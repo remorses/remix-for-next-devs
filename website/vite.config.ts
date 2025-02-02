@@ -22,7 +22,14 @@ export default defineConfig({
                 remarkMdxFrontmatter,
                 [remarkCodeHike, { theme: 'github-dark' }],
             ],
-            rehypePlugins: [withSlugs, withToc, withTocExport, rehypeMdxImportMedia],
+
+            rehypePlugins: [
+                withSlugs,
+                withToc,
+                withTocExport,
+                rehypeMdxImportMedia,
+                //
+            ],
             mdxExtensions: ['.md', '.mdx'],
             mdExtensions: [],
             // providerImportSource: '@mdx-js/react',
